@@ -10,8 +10,8 @@ public class Program
         var ollamaEndpoint = new Uri("http://localhost:11434");
         var qdrantEndpoint = new Uri("http://localhost:6334");
 
-        const string chatModelId = "gemma3:12b";
-        const string embeddingModelId = "nomic-embed-text";
+        const string chatModelId = "qwen3:4b";
+        const string embeddingModelId = "nomic-embed-text:latest";
         const string collectionName = "products";
 
         IChatClient chatClient = new OllamaChatClient(ollamaEndpoint, chatModelId);
@@ -31,7 +31,7 @@ public class Program
 
         Console.WriteLine("Ollama + Qdrant initialized successfully.");
 
-        var products = vectorStore.GetCollection<ulong, Product>(collectionName);
+        var products = vectorStore.GetCollection<Guid, Product>(collectionName);
 
         await products.EnsureCollectionExistsAsync();
 
