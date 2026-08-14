@@ -13,7 +13,7 @@ namespace Nuruddin.RagApp
         [VectorStoreData]
         public string? Description { get; set; }
 
-        [VectorStoreVector(dimensions: 768, DistanceFunction = DistanceFunction.CosineSimilarity)]
+        [VectorStoreVector(768, DistanceFunction = DistanceFunction.CosineSimilarity)]
         public ReadOnlyMemory<float>? DescriptionEmbedding { get; set; }
     }
 }
